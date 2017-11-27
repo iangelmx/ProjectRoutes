@@ -4,6 +4,24 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Ruta 1</title>
+    <!--font-awsome-css-->
+     <link rel="stylesheet" href="css/font-awesome.min.css"> 
+<!--bootstrap-->
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<!--custom css-->
+  <link href="css/style.css" rel="stylesheet" type="text/css"/>
+<!--component-css-->
+   <script src="js/jquery-2.1.4.min.js"></script>
+<!--script-->
+  <script src="js/modernizr.custom.js"></script>
+    <script src="js/bigSlide.js"></script>
+           <script>
+        $(document).ready(function() {
+        $('.menu-link').bigSlide();
+        });
+     </script>
+
+
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -24,8 +42,11 @@
      <!-- GEOLOCALIZATION-->
 
             <!--<p style=" float: left;">Click the button to get your coordinates.</p>-->
-
-            <button onclick="getLocation()" style=" float: right;">Geolocalizar</button>
+            <CENTER>
+              <a><span class="label label-success" onclick="getLocation()"> GEOLOCALIZAR
+              </span></a>
+            </CENTER>
+            <!--<button onclick="getLocation()" style=" float: right;">Geolocalizar</button>-->
 
             <p style="float: left;" id="demo"></p>
 
@@ -41,8 +62,9 @@
             }
 
             function showPosition(position) {
-                x.innerHTML = "Latitude: " + position.coords.latitude + 
-                "<br>Longitude: " + position.coords.longitude;
+                x.innerHTML = "Latitud: " + position.coords.latitude + 
+                "<br>Longitud: " + position.coords.longitude;
+                initMap(position.coords.latitude, position.coords.longitude)
             }
             </script>
 
@@ -53,7 +75,7 @@
       // Kingsford Smith's first trans-Pacific flight between Oakland, CA, and
       // Brisbane, Australia.
 
-      function initMap() {
+      function initMap(lati, longi) {
         var myLatLng = {lat: 19.446215, lng: -99.152568};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 13,
@@ -80,6 +102,24 @@
           map: map,
           title: 'Final'
         });
+
+        var Geolock = new google.maps.Marker({
+          position: {lat: lati, lng: longi},
+          label: 'Now',
+          map: map,
+          title: 'Localización actual'
+        });
+
+        Geolock.addListener('click', toggleBounce);
+
+        function toggleBounce() {
+          if (Geolock.getAnimation() !== null) {
+            Geolock.setAnimation(null);
+          } else {
+            Geolock.setAnimation(google.maps.Animation.BOUNCE);
+          }
+        }
+
         var flightPlanCoordinates = [
           {lat: 19.446215, lng: -99.152568},
           {lat: 19.4456938, lng:-99.1487945},
