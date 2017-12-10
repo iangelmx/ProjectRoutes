@@ -15,11 +15,11 @@
 <!--script-->
   <script src="js/modernizr.custom.js"></script>
     <script src="js/bigSlide.js"></script>
-      <!--<script>
+           <script>
         $(document).ready(function() {
         $('.menu-link').bigSlide();
         });
-     </script>-->
+     </script>
 
 <script type="text/javascript">
   
@@ -48,7 +48,7 @@ function successCallback(position) {
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 95%;
+        height: 90%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -70,6 +70,8 @@ function successCallback(position) {
             </CENTER>
             <!--<button onclick="getLocation()" style=" float: right;">Geolocalizar</button>-->
 
+            <p style="float: left;" id="demo"></p>
+
             <script>
             var x = document.getElementById("demo");
 
@@ -82,7 +84,10 @@ function successCallback(position) {
             }
 
             function showPosition(position) {
+                x.innerHTML = "Latitud: " + position.coords.latitude + 
+                "<br>Longitud: " + position.coords.longitude;
                 initMap(position.coords.latitude, position.coords.longitude);
+                
             }
             </script>
 
@@ -304,8 +309,8 @@ function successCallback(position) {
 
         // ----------- INICIO  LISTENERS-----------------------
 
-        Geolock.addListener('click', toggleBounce);
-        map.addListener('click', calculateAndDisplayRoute);
+        //Geolock.addListener('click', toggleBounce);
+        //map.addListener('click', calculateAndDisplayRoute);
 
         // ----------- FIN LISTENERS -----------------------
 
