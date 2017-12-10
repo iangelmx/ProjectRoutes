@@ -94,48 +94,84 @@ function successCallback(position) {
           <!-- // GEOLOCALIZATION -->
     <script>
 
-
       function initMap(lati, longi) {
         var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
         var myLatLng = {lat: 19.446215, lng: -99.152568};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 13,
-          center: {lat: 19.4756808, lng: -99.1376482},
+          zoom: 12,
+          center: {lat: 19.47929684303594, lng: -99.16963577270508}, 
+          //{lat: 19.4756808, lng: -99.1376482},
           mapTypeId: 'terrain'
         });
-        map.addListener('click', calculateAndDisplayRoute);
-        var Inicio = new google.maps.Marker({
-          position: myLatLng,
-          label: 'Inicio',
-          map: map,
-          title: 'Inicio',
-          icon : image
-        });
 
-        var Parada1 = new google.maps.Marker({
-          position: {lat: 19.452578, lng: -99.147207},
-          label: 'P1',
-          map: map,
-          title: 'parada 1'
-        });
+        // inician Markers ----------------
+          // markers poli inicio
+            var Inicio = new google.maps.Marker({
+              position: myLatLng,
+              label: '',
+              map: map,
+              title: 'Inicio',
+              icon : image
+            });
 
-        var UltimaParada = new google.maps.Marker({
-          position: {lat: 19.501231, lng: -99.148975},
-          label: 'Fin',
-          map: map,
-          title: 'Final',
-          icon : image
-        });
+            var Parada1 = new google.maps.Marker({
+              position: {lat: 19.452578, lng: -99.147207},
+              label: 'P1',
+              map: map,
+              title: 'parada 1'
+            });
 
-        var Geolock = new google.maps.Marker({
-          position: {lat: lati, lng: longi},
-          label: 'Now',
-          map: map,
-          title: 'Localización actual'
-        });
+            var Paradaxd = new google.maps.Marker({
+              position: {lat: 19.501231, lng: -99.148975},
+              label: 'Parada',
+              map: map,
+              title: 'Final'
+              //icon : image
+            });
 
-        Geolock.addListener('click', toggleBounce);
+            var ultimaParadaIPN = new google.maps.Marker({
+              position: {lat: 19.517900199947846, lng: -99.15604770183563},
+              label: 'Fin',
+              map: map,
+              title: 'Final',
+              icon : image
+            });
 
+            var Geolock = new google.maps.Marker({
+              position: {lat: lati, lng: longi},
+              label: 'Tú',
+              map: map,
+              title: 'Localización actual'
+            });
+          // fin markers poli
+
+          // markers cotobusa
+            var carso = 'http://www.carso.com.mx/SiteCollectionImages/favicon.ico';
+            var inicioCarso = new google.maps.Marker({
+              position: {lat: 19.445456978659827, lng: -99.15150135755539},
+              label: '',
+              map: map,
+              title: 'Inicia',
+              icon : carso
+            });
+
+            var ultimaParadaCarso = new google.maps.Marker({
+              position: {lat: 19.444574281033017,  lng:-99.21258330345154},
+              label: 'Fin',
+              map: map,
+              title: 'Final',
+              icon : carso
+            });
+
+            var Parada25 = new google.maps.Marker({
+              position: {lat: 19.435554808974327, lng: -99.16639566421509},
+              label: 'Parada',
+              map: map,
+              title: 'parada 1'
+            });
+          //fin markers cobotusa
+        // fin Markers --------------------
+        
         function toggleBounce() { // Hace rebotar el marcador actual
           if (Geolock.getAnimation() !== null) {
             Geolock.setAnimation(null);
@@ -144,24 +180,24 @@ function successCallback(position) {
           }
         }
 
+        function calculateAndDisplayRoute() { //Muestra la ruta
+            directionsService.route({
+              origin: {lat: lati, lng: longi},
+              destination: {lat: 19.501231, lng: -99.148975},
+              travelMode: 'WALKING'
+            }, function(response, status) {
+              if (status === 'OK') {
+                directionsDisplay.setDirections(response);
+              } else {
+                window.alert('Directions request failed due to ' + status);
+              }
+            });
+          }        
+
         var directionsDisplay = new google.maps.DirectionsRenderer;
         var directionsService = new google.maps.DirectionsService;
 
-      function calculateAndDisplayRoute() { //Muestra la ruta
-          directionsService.route({
-            origin: {lat: lati, lng: longi},
-            destination: {lat: 19.446215, lng: -99.152568},
-            travelMode: 'WALKING'
-          }, function(response, status) {
-            if (status === 'OK') {
-              directionsDisplay.setDirections(response);
-            } else {
-              window.alert('Directions request failed due to ' + status);
-            }
-          });
-        }
-
-        var flightPlanCoordinates = [
+        var rutaBuenavistaIPN = [
           {lat: 19.446215, lng: -99.152568},
           {lat: 19.4456938, lng:-99.1487945},
           {lat: 19.452948, lng: -99.147122},
@@ -195,18 +231,106 @@ function successCallback(position) {
           {lat: 19.490372, lng: -99.144706},
           {lat: 19.493225, lng: -99.145837},
           {lat: 19.496652, lng: -99.147164},
-          {lat: 19.501231, lng: -99.148975}
+          {lat: 19.501231, lng: -99.148975},
+          {lat: 19.512874295474887, lng: -99.15355324745178},
+          {lat: 19.513678248438616, lng: -99.15409505367279},
+          {lat: 19.514335565501337, lng: -99.15460467338562},
+          {lat: 19.515114229948278, lng: -99.15485680103302},
+          {lat: 19.515776597402326, lng: -99.15507674217224},
+          {lat: 19.517900199947846, lng: -99.15604770183563}
         ];
-        var flightPath = new google.maps.Polyline({
-          path: flightPlanCoordinates,
+        var BuenavistaIpnPath = new google.maps.Polyline({
+          path: rutaBuenavistaIPN,
           geodesic: true,
           strokeColor: '#FF0000',
           strokeOpacity: 1.0,
           strokeWeight: 4
         });
 
-        flightPath.setMap(map);
+        var cotobusa = [
+        {lat: 19.445456978659827, lng: -99.15150135755539},
+        {lat: 19.445846476945587, lng: -99.15127336978912},
+        {lat: 19.445823714084483, lng: -99.15095955133438},
+        {lat: 19.445934999152882, lng: -99.15088176727295},
+        {lat: 19.44562137740094, lng: -99.14887547492981},
+        {lat: 19.44367893240393, lng: -99.14931535720825},
+        {lat: 19.445044716468892, lng: -99.15701866149902},
+        {lat: 19.440755104177043, lng: -99.15781795978546},
+        {lat: 19.44136213167036, lng: -99.15955603122711},
+        {lat: 19.439465163216862, lng: -99.16026949882507},
+        {lat: 19.434846584679217, lng: -99.16160523891449},
+        {lat: 19.43566104235218, lng: -99.16703939437866},
+        {lat: 19.435549750240313, lng: -99.16720032691956},
+        {lat: 19.435509280362538, lng: -99.16746318340302},
+        {lat: 19.436419850172697, lng: -99.16988253593445},
+        {lat: 19.437416412390082, lng: -99.17148649692535},
+        {lat: 19.439849617281123, lng: -99.17516112327576},
+        {lat: 19.440709577023522, lng: -99.17601943016052},
+        {lat: 19.440709577023522, lng: -99.17624473571777},
+        {lat: 19.44053758543949, lng: -99.176105260849},
+        {lat: 19.44046676532252, lng: -99.17627692222595},
+        {lat: 19.438332030152363, lng: -99.17804718017578},
+        {lat: 19.439020004741895, lng: -99.1807347536087},
+        {lat: 19.439692800601694, lng: -99.18344914913177},
+        {lat: 19.439844558680925, lng: -99.18371737003326},
+        {lat: 19.440426296670378, lng: -99.1890013217926},
+        {lat: 19.44061852267821, lng: -99.19048726558685},
+        {lat: 19.44074498703292, lng: -99.19131338596344},
+        {lat: 19.44095238836136, lng: -99.19537961483002},
+        {lat: 19.441094028140693, lng: -99.19848561286926},
+        {lat: 19.441073793894073, lng: -99.19917225837708},
+        {lat: 19.44096756405792, lng: -99.19976770877838},
+        {lat: 19.440527468281815, lng: -99.20100152492523},
+        {lat: 19.440375710841, lng: -99.20142531394958},
+        {lat: 19.440254304786205, lng: -99.20172035694122},
+        {lat: 19.44014807441377, lng: -99.2022031545639},
+        {lat: 19.44019360172475, lng: -99.20323312282562},
+        {lat: 19.440269480548018, lng: -99.20551836490631},
+        {lat: 19.440390886591466, lng: -99.20767486095428},
+        {lat: 19.44041112092321, lng: -99.20779287815094},
+        {lat: 19.441867986180775, lng: -99.21160161495209},
+        {lat: 19.441933747151335, lng: -99.21225607395172},
+        {lat: 19.44196915689368, lng: -99.21269059181213},
+        {lat: 19.444574281033017,  lng:-99.21258330345154}
+        ];
+        var cotobusaPath = new google.maps.Polyline({
+          path: cotobusa,
+          geodesic: true,
+          strokeColor: '#0000FF',
+          strokeOpacity: 1.0,
+          strokeWeight: 4
+        });
+
+        BuenavistaIpnPath.setMap(map);
+        //directionsDisplay.setMap(map);
+        cotobusaPath.setMap(map);
         directionsDisplay.setMap(map);
+
+
+        // ----------- INICIO  LISTENERS-----------------------
+
+        //Geolock.addListener('click', toggleBounce);
+        //map.addListener('click', calculateAndDisplayRoute);
+
+        // ----------- FIN LISTENERS -----------------------
+
+        /*map.addListener("click", function (event) {
+        var latitude = event.latLng.lat();
+        var longitude = event.latLng.lng();
+        console.log( latitude + ', ' + longitude );
+
+          var Geolock = new google.maps.Marker({
+            position: {lat: latitude, lng: longitude},
+            label: 'coord',
+            map: map,
+            title: 'coordenada CAPTURADA'
+          });
+
+       // Center of map
+        //map.panTo(new google.maps.LatLng(latitude,longitude));
+
+        }); //SERVIRÁ PARA LA VISTA EN LA QUE SE GENEREN LAS RUTAS */
+
       }
 
 
