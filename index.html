@@ -1,56 +1,254 @@
-
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
-<html>
+
+<html lang="es">
 <head>
-<title>Travel Hunt a Mobile App Flat Bootstrap Responsive Website Template | Home :: W3layouts</title> 
-<!-- For-Mobile-Apps-and-Meta-Tags -->
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ruta Inteligente MX</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Travel Hunt Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, SmartPhone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- //For-Mobile-Apps-and-Meta-Tags -->
-<!-- Custom Theme files -->
-<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-<link href="css/style.css" type="text/css" rel="stylesheet" media="all">  
-<!-- //Custom Theme files -->
-<!-- js -->
-<script src="js/jquery-2.2.3.min.js"></script> 
-<!-- //js -->
+<meta name="keywords" content="Sitio web de transporte público multimodal" />
+<script type="application/x-javascript"> addEventListener("load", function() {setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<meta charset utf="8">
+<!--font-awsome-css-->
+     <link rel="stylesheet" href="css/font-awesome.min.css"> 
+<!--bootstrap-->
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<!--custom css-->
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+<!--component-css-->
+	<script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+<!--script-->
+	<script src="js/modernizr.custom.js"></script>
+    <script src="js/bigSlide.js"></script>
+           <script>
+				$(document).ready(function() {
+				$('.menu-link').bigSlide();
+				});
+     </script>
 <!-- web-fonts -->  
-<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
-<!-- //web-fonts --> 
-</head>
-<body>
-	<div class="main-row">
-		<h1>T<span>r</span>a<span>v</span>e<span>l </span> <span>H</span>u<span>n</span>t</h1>
-		  
-				<div class="main_frame second">
-				<div class="main_frame">
-					<iframe class="frame-border" src="main.html" frameborder="0"></iframe>
+  <link href='//fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!-- //web-fonts -->
+<!-- pop-up-box -->
+<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+	    <script>
+			$(document).ready(function() {
+				$('.popup-top-anim').magnificPopup({
+					type: 'inline',
+					fixedContentPos: false,
+					fixedBgPos: true,
+					overflowY: 'auto',
+					closeBtnInside: true,
+					preloader: false,
+					midClick: true,
+					removalDelay: 300,
+					mainClass: 'my-mfp-zoom-in'
+				});																							
+			}); 
+		</script>
+		<script type="text/javascript">
+			function pop(){
+				alert("Próximamente...")
+			}
+		</script>
+<!--//pop-up-box -->
+
+<!-- LIBRERIAS ANGEL -->
+
+ <!-- AngularJS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+
+	  <!-- Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+
+	<!-- AngularFire -->
+	<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
+	<script src="app/app.js"> </script>
+	<script src="app/menu/menu.js"></script>
+	<script src="app/footer/footer.js"></script>
+	<script src="app/banner/banner.js"></script>
+
+<!-- FIN LIBRERIAS ANGEL -->
+
+    </head>
+<body ng-app="sistramint">
+<div class="body-back">
+	<div class="masthead pdng-stn1">
+<!-- menu -->
+<menu></menu>
+		<div class="phone-box wrap push" id="home">
+			<div class="menu-notify">
+				<div class="profile-left">
+					<a href="#menu" class="menu-link"><i class="fa fa-list-ul"></i></a>
+				</div>
+				<div class="Profile-mid">
+					<h5 class="pro-link"><a href="main.html">Viaja inteligente...</a></h5>
+				</div>
+				<div class="Profile-right">
+					<a href="#small-dialog" class="sign-in popup-top-anim"> <i class="fa fa-user"></i></a> 
+					<!-- modal -->
+					<div id="small-dialog" class="mfp-hide">
+						<div class="login-modal"> 	
+							<div class="booking-info">
+							   <h3><a href="bus.html">S<span>I</span>S<span>T</span>R<span>A</span>M<span>I</span>N<span>T</span></a></h3>
+								
+							</div>
+							<div class="login-form">
+								<form action="#" method="post">
+									<p>Correo electrónico</p>
+									<input type="text" name="Name" required=""/>
+									<p>Contraseña</p>
+									<input type="password" name="Password" required=""/>	 
+									<div class="wthree-text"> 
+										<ul> 
+											<li>
+												<input type="checkbox" id="brand" value="">
+												<label for="brand"><span></span> Mantener identificado.</label>  
+											</li>
+											<li> <a href="#">¿Olvidaste tu contraseña?</a> </li>
+										</ul>
+										<div class="clear"> </div>
+									</div> 
+									<input type="submit" value="Iniciar sesión">		
+								</form>
+								<p>¿No tienes una cuenta?<a href="#small-dialog1" class="sign-in popup-top-anim"> Regístrate ahora.</a></p>
+							</div> 
+						</div>
+					</div>
+					<!-- //modal --> 
+					<!-- modal-two -->
+					<div id="small-dialog1" class="mfp-hide">
+						<div class="login-modal">  
+							<div class="booking-info">
+							   <h3><a href="main.html">S<span>I</span>S<span>T</span>R<span>A</span>M<span>I</span>N<span>T</span></a></h3>
+								
+							</div>
+							<div class="login-form signup-form">
+								<form action="#" method="post">
+									<p>Nombre completo</p>
+									<input type="text" name="Name"  required=""/>
+									<p>Correo electrónico</p>
+									<input type="text" name="Email"  required=""/>
+									<p>Contraseña</p>
+									<input type="password" name="Password" placeholder="" required=""/>	
+									<div class="wthree-text"> 
+										<input type="checkbox" id="brand1" value="">
+										<label for="brand1"><span></span>Acepto los términos de condiciones.</label> 
+									</div>
+									<input type="submit" value="Registrarme">		
+								</form> 
+							</div> 
+						</div>
+					</div>
+					<!-- //modal-two --> 
+					
+				</div>
+				<div class="clearfix"></div>
+			</div> 
+	<!-- banner -->
+
+	<banner></banner>
+
+   <!-- //banner -->
+   <!--/welcome-->
+		        <div class="w3agile welcome"> 
+					<h3 class="w3ls-title">Bienvenido a SISTRAMINT !</h3> 
+					<div class="b-bottom">
+			<div class="col-md-6 banner_bottom_left">
+				<h2>La manera inteligente de viajar</h2>
+				<p><i>Una compañía 100% mexicana</i></p>
+				<h3>¿Qué somos?</h3>
+				<p>Somos una startup mexicana que se ha incursionado en el mundo de la movilidad mexicana para mejorar la experiencia e innovar la manera en que los pasajeros toman o predicen dónde se encuentra la siguiente unidad del transporte</p>
+				<h3>¿Qué ofrecemos?</h3>
+				<p>Una plataforma web, dónde los usuarios podrán visualizar las rutas que siguen ciertos corredores de autobuses, así como visualizar dónde se encuentran aquellas unidades dadas de alta en la misma</p>
+				<h3>¿Cómo lo hacemos?</h3>
+				<p>Empleando tecnologías que grandes en el mercado mundial emplean, como Uber, WhatsApp, etc...</p>
+
+				<div class="wthree_more wthree_more1">
+					<a href="#" class="button--wayra button--border-thick button--text-upper button--size-s">Read More</a>
 				</div>
 			</div>
-	</div>
-	<div class="copy-right">
-		<p>&copy; 2016 Travel Hunt . All Rights Reserved | Design by <a href="http://w3layouts.com" target="_blank">W3layouts</a></p>
-	</div>
-	<script src="js/jquery.nicescroll.min.js"></script> 
-	<script>
-	  $(document).ready(function() {
-	  
-		var nice = $("html").niceScroll();  // The document page (body)
-		
-		$("#div1").html($("#div1").html()+' '+nice.version);
-		
-		$("#boxscroll").niceScroll(); // First scrollable DIV
-		
-	  });
-	</script>
+			<div class="col-md-6 banner_bottom_right">
+				<div class="wthree_banner_bottom_right_grids">
+					<div class="col-md-6 banner_bottom_right_grid">
+						<div class="view view-tenth">
+						<img src="images/4.jpg" class="img-responsive" alt="">
+							
+							<div class="mask">
+							    <a href="flight.html">
+									  <div class="agile_text_box">
+											<i class="fa fa-plane" aria-hidden="true"></i>
+											<h3>Lorem ipsum</h3>
+											<p>Lorem ipsum dolor sit amet, consectetur adip.</p>
+									  </div>
+								 </a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 banner_bottom_right_grid">
+						<div class="view view-tenth">
+						<img src="images/5.jpg" class="img-responsive" alt="">
+							
+							<div class="mask">
+							   <a href="train.html">
+									<div class="agile_text_box">
+										<i class="fa fa-train" aria-hidden="true"></i>
+										<h3>Train</h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adip.</p>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="wthree_banner_bottom_right_grids">
+					<div class="col-md-6 banner_bottom_right_grid">
+						<div class="view view-tenth">
+						<img src="images/6.jpg" class="img-responsive" alt="">
+							
+							<div class="mask">
+							  <a href="bus.html">
+								<div class="agile_text_box">
+									<i class="fa fa-bus" aria-hidden="true"></i>
+									<h3>Bus</h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adip.</p>
+								</div>
+							   </a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 banner_bottom_right_grid">
+						<div class="view view-tenth">
+							<img src="images/7.jpg" class="img-responsive" alt="">
+							<div class="mask">
+							<a href="hotel.html">
+							  <div class="agile_text_box">
+								<i class="fa fa-bed" aria-hidden="true"></i>
+								<h3>Hotels</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adip.</p>
+							   </div>
+							   </a>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>	
+				</div>
+		<!--//welcome-->
+    <!--/footer-->
+
+    <footer></footer>
+    
+	<!--/footer-->
+	
+</div>
+</div>
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/scripts.js"></script>
 </body>
 </html>

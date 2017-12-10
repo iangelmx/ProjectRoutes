@@ -19,44 +19,39 @@
 <!--script-->
 	<script src="js/modernizr.custom.js"></script>
     <script src="js/bigSlide.js"></script>
-           <script>
+           <!--<script>
 				$(document).ready(function() {
 				$('.menu-link').bigSlide();
 				});
-     </script>
-<!-- web-fonts -->  
-  <link href='//fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
-  <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-<!-- //web-fonts -->
+     </script>-->
+	<!-- web-fonts -->  
+	<link href='//fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	      rel="stylesheet">
+		<!-- //web-fonts -->
 
+ <!-- AngularJS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
 
+	  <!-- Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+
+	<!-- AngularFire -->
+	<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
+	<script src="app/app.js"> </script>
+	<script src="app/menu/menu.js"></script>
+	<script src="app/footer/footer.js"></script>
+	
+<!-- FIN LIBRERIAS ANGEL -->
     </head>
 	
-<body>
+<body ng-app="sistramint">
 <div class="body-back">
 	<div class="masthead pdng-stn1">
-		<div id="menu" class="panel" role="navigation">
-			<div class="wrap-content">
-				<div class="profile-menu text-center">
-					<img class="border-effect" src="images/logo.png" alt=" ">
-						<h3>MENU</h3>
-
-						<div class="pro-menu">
-							<div class="logo">
-								<li><a class=" link link--yaku  active" href="main.html"><span>I</span><span>n</span><span>i</span><span>c</span><span>i</span><span>o</span></a></li>
-								<li><a class=" link link--yaku" href="about.html"><span>A</span><span>c</span><span>e</span><span>r</span><span>c</span><span>a</span> <span>d</span><span>e...</span></a></li>
-								<li><a class=" link link--yaku" href="#.html"><span>S</span><span>e</span><span>r</span><span>v</span><span>i</span><span>c</span><span>e</span><span>s</span></a></li>
-								<li><!--<a class=" link link--yaku" href="destination.html">--><span>D</span><span>e</span><span>s</span><span>t</span><span>i</span><span>n</span><span>a</span><span>t</span><span>i</span><span>o</span><span>n</span><span>s</span></a></li>
-								<li><!--<a class=" link link--yaku" href="contact.html">--><span>C</span><span>o</span><span>n</span><span>t</span><span>a</span><span>c</span><span>t</span></a></li>
-							</div>
-				
-
-						</div>
-				</div>
-			</div>
-		</div>
+	<menu></menu>
+		
 		<div class="phone-box wrap push" id="home">
 			<div class="menu-notify">
 				<div class="profile-left">
@@ -179,11 +174,11 @@
 												<!---start-date-piker---->
 												<link rel="stylesheet" href="css/jquery-ui.css" />
 												<script src="js/jquery-ui.js"></script>
-													<script>
+													<!--<script>
 														$(function() {
 														$( "#datepicker,#datepicker1" ).datepicker();
 														});
-													</script>
+													</script>-->
 											<!---/End-date-piker---->
 										</div>
 									
@@ -224,58 +219,14 @@
 
 	<!-- //contact-->
     <!--/footer-->
-    <div class="w3agile footer">
-			<div class="col-md-3 w3agile_footer_grid">
-				<h3 class="logo"><a href="bus.html">H<span>a</span>c<span>k</span>i<span>n</span>g <span>R</span>o<span>u</span>t<span>e</span>s</a></h3>
-			</div>
-			<div class="col-md-2 w3agile_footer_grid">	
-				<h3>Links</h3>
-				<ul>
-					<li><a href="bus.html">Acerca de nosotros...</a></li>
-				</ul>
-			</div>
-			<div class="col-md-4 w3agile_footer_grid">
-				<h3>Twitter Posts</h3>
-				<ul class="w3agile_footer_grid_list">
-					<li>Ahora llegamos al corredor Buenavista - Politécnico!
-						<span><i class="fa fa-twitter" aria-hidden="true"></i> Hace 2 días.</span></li>
-				</ul>
-			</div>
-			<div class="col-md-3 w3agile_footer_grid">
-				<h3>Noticias</h3>
-				<p>Nuevas unidades se han integrado a las rutas del valle de México gracias al aumento en tarifas.</p>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-		<div class="w3agile agileinfo_copy_right">
-			<div class="agileinfo_copy_right_left">
-				<p>© 2017 Ruta inteligente MX. Todos los derechos reservados</p>
-			</div>
-			<div class="agileinfo_copy_right_right">
-				<ul class="social">
-					<li><a class="social-linkedin" href="#">
-						<i></i>
-						<div class="tooltip"><span>Facebook</span></div>
-						</a></li>
-					<li><a class="social-twitter" href="#">
-						<i></i>
-						<div class="tooltip"><span>Twitter</span></div>
-						</a></li>
-					<li><a class="social-instagram" href="#">
-						<i></i>
-						<div class="tooltip"><span>Instagram</span></div>
-						</a></li>
-				</ul>
-			</div>
-			<div class="clearfix"> </div>
-	</div>
+    <footer></footer>
 	<!--/footer-->
 	</div>
 </div>
 
 	<!-- pop-up-box -->
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
-	    <script>
+	    <!--<script>
 			$(document).ready(function() {
 				$('.popup-top-anim').magnificPopup({
 					type: 'inline',
@@ -289,10 +240,13 @@
 					mainClass: 'my-mfp-zoom-in'
 				});																							
 			}); 
-		</script>
+		</script>-->
 <!--//pop-up-box -->
  <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.nicescroll.js"></script>
 <script src="js/scripts.js"></script>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 </html>
